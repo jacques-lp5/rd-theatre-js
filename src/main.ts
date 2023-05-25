@@ -1,11 +1,14 @@
 import './style.css'
 import * as THREE from 'three'
 import studio from '@theatre/studio'
+import projectState from './rd-theatre.theatre-project-state.json'
 import { getProject, types } from '@theatre/core'
 
-studio.initialize()
+if (import.meta.env.DEV) {
+    studio.initialize()
+}
 
-const project = getProject('rd-theatre')
+const project = getProject('rd-theatre', {state: projectState})
 const sheet = project.sheet('Animated scene')
 
 
